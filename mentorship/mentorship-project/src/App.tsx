@@ -5,6 +5,7 @@ import ProductPage from "./components/Product/ProductPage";
 import Root from "./components/Root/Root";
 import Login from "./components/LogIn/Login";
 import Register from "./components/Register/Register";
+
 function App() {
   const router = createBrowserRouter([
     {

@@ -1,29 +1,34 @@
 import "./Login.css";
 import logo from "../../assets/Logo.png";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState();
-  const loginHandler = async () => {
-    const result = await fetch("https://localhost:8000/api/login_check", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    });
-    const data = await result.json();
-    localStorage.setItem(email, JSON.stringify(data));
-    setToken(data);
-  };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(
+        "https://localhost:8000/api/login_check",
+        { email, password }
+      );
+      const { token } = response.data;
+      const decodedToken = jwt_decode(token); // Typecast to User interface
+
+      localStorage.setItem("token", token); // Store token in local storage
+      localStorage.setItem("user", JSON.stringify(decodedToken)); // Store user data
+      dispatch({ type: "LOGIN", payload: decodedToken }); // Dispatch login action
+      navigate("/");
+    } catch (error) {
+      console.error("Login failed", error);
+    }
+  };
   return (
     <section className="dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 ">
@@ -85,7 +90,7 @@ const Login = () => {
               </div>
               <button
                 type="button"
-                onClick={loginHandler}
+                onClick={handleLogin}
                 className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
                 Sign in

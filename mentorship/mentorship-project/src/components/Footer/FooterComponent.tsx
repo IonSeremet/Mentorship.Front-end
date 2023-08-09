@@ -1,6 +1,8 @@
+import "./FooterComponent.css";
+
 const FooterComponent = () => {
   return (
-    <footer className="relative bg-blueGray-200 pt-8 pb-6">
+    <footer className="relative bg-blueGray-200 pt-8 pb-6 ">
       <div className="container mx-auto px-4 ">
         <div className="flex flex-wrap text-center lg:text-center sm:justify-center">
           <div className="w-full lg:w-6/12 px-4">
@@ -36,6 +38,41 @@ const FooterComponent = () => {
         </div>
       </div>
     </footer>
+    // <footer className="footer-container pt-8 pb-6 bottom-0">
+    //   <div className="container mx-auto px-4">
+    //     <div className="flex flex-wrap text-center sm:justify-center">
+    //       <div className="w-full lg:w-6/12 px-4 contact-box">
+    //         <h4 className="contact-title">Contacteaza-ne!</h4>
+    //         <h5 className="contact-subtitle">
+    //           Ne gasesti pe platformele de mai jos :)
+    //         </h5>
+    //         <div className="social-buttons">
+    //           <a href="https://www.facebook.com/gabrielaracovitailescu">
+    //             <button
+    //               className="social-button facebook-btn"
+    //               type="button"
+    //             ></button>
+    //           </a>
+    //           <a href="https://www.instagram.com/ilas.flowers/">
+    //             <button
+    //               className="social-button instagram-btn"
+    //               type="button"
+    //             ></button>
+    //           </a>
+    //         </div>
+    //       </div>
+    //     </div>
+    //     <hr className="my-6 border-blueGray-300" />
+    //     <div className="flex flex-wrap items-center md:justify-between justify-center">
+    //       <div className="w-full md:w-4/12 px-4 mx-auto text-center copy-info">
+    //         <div className="copy-text">
+    //           Creat de <span className="copy-text">Șeremet Ion </span>
+    //           <span>2023</span>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </footer>
   );
 };
 export default FooterComponent;

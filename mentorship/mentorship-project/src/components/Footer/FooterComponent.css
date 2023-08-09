@@ -1,0 +1,51 @@
+.footer-container {
+  position: relative;
+  background: rgb(75, 53, 118);
+  background: white;
+  font-family: "Roboto", sans-serif;
+  gap: 20px;
+}
+
+.contact-box {
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.contact-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.social-buttons {
+  margin-top: 1.5rem;
+}
+
+.social-button {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.copy-info {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  color: #999;
+}
+
+.copy-text {
+  font-weight: bold;
+  color: #555;
+}
